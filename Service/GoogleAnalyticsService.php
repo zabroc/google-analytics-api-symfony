@@ -33,11 +33,11 @@ class GoogleAnalyticsService {
     /**
      * @var Google_Service_AnalyticsReporting_Dimension[]
      */
-    private $reportingDimension = null;
+    private $reportingDimensions = null;
     /**
      * @var Google_Service_AnalyticsReporting_Metric[]
      */
-    private $reportingMetric = null;
+    private $reportingMetrics = null;
 
     /**
      * construct
@@ -98,6 +98,10 @@ class GoogleAnalyticsService {
      *
      */
     public function getDataDateRangeMetricsDimensions($viewId,$dateStart,$dateEnd,$metrics='sessions',$dimensions=null,$sorting=null,$filterMetric=null,$filterDimension=null, $pageSize=null) {
+
+        $this->reportingMetrics = [];
+        $this->reportingDimensions = [];
+
 
         // Create the DateRange object
         $dateRange = new Google_Service_AnalyticsReporting_DateRange();
